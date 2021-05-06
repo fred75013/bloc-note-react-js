@@ -1,0 +1,66 @@
+/*Page*/
+body {
+  background-color: black;
+  color: white;
+}
+h2 {
+  color: rgb(180, 7, 7);
+}
+.page {
+  display: flex;
+}
+.left {
+  border-right: white solid 1px;
+  width: 25%;
+  margin-left: 5px;
+  overflow-wrap: break-word;
+}
+.right {
+  width: 75%;
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  padding: 10px;
+}
+.NoteDisplay {
+  min-height: 280px;
+  overflow-wrap: break-word;
+}
+
+/*FORMULAIRE*/
+.form {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 16px;
+}
+.input {
+  height: 30px;
+}
+.textarea {
+  height: 150px;
+}
+.input,
+.textarea {
+  margin: 10px;
+  background-color: #4b4b4b;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+}
+.btn {
+  width: 150px;
+  align-self: flex-start;
+  margin-left: 10px;
+  background-color: rgb(180, 7, 7);
+  margin-top: 5px;
+}
+
+/*SAVE PART*/
+
+.contentSave {
+  overflow-wrap: break-word;
+  overflow-y: hidden;
+  height: 150px;
+}

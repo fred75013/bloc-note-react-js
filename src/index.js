@@ -1,17 +1,41 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./style.css";
+import React from "react";
+import ReactDOM from "react-dom";
+import MarkdownInput from "components/MarkdownInput";
+import NoteSave from "components/NoteSave";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const App = () => {
+  const [show, setShow] = React.useState("");
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  const test = localStorage;
+  const noteArr = Object.keys(test).map(function (cle) {
+    return [cle, test[cle]];
+  });
+
+  const showMore = (e) => {
+    setShow(e);
+  };
+
+  const addNote = () => {
+    setShow("");
+  };
+
+  return (
+    <div className="page">
+      <div className="left">
+        <button className="btn btn-danger" onClick={addNote}>
+          Ajouter une note
+        </button>
+        {noteArr.map((x) => {
+          return <NoteSave click={showMore} data={x} key={x[0]} />;
+        })}
+      </div>
+      <div className="right">
+        <MarkdownInput data={show} />
+      </div>
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById("root"));
